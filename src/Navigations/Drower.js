@@ -3,12 +3,13 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import Stack from "./Stack";
+import DrowerC from "./DrowerC";
 
 const Drower = () => {
   const DrowerN = createDrawerNavigator();
 
   return (
-    <DrowerN.Navigator>
+    <DrowerN.Navigator drawerContent={DrowerC}>
       <DrowerN.Screen name="Home" component={Stack} />
     </DrowerN.Navigator>
   );
