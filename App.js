@@ -1,24 +1,35 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-
+import {
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import Home from "./src/Screens/Home";
+import Contact from "./src/Screens/Contact";
+import Profile from "./src/Screens/Profile";
+import Notif from "./src/Screens/Notif";
 export default function App() {
+  const Stack = createStackNavigator();
+  const Drower = createDrawerNavigator();
   return (
-    <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          width: "100%",
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Text>ABC</Text>
-        <Text>123</Text>
-      </View>
-      <View style={{ backgroundColor: "red", width: "100%", flex: 5 }}></View>
+    <>
+      <NavigationContainer>
+        <Drower.Navigator>
+          <Drower.Screen name="Home" component={Home} />
+          <Drower.Screen name="Contact" component={Contact} />
+          <Drower.Screen name="Profile" component={Profile} />
+          <Drower.Screen name="Notif" component={Notif} />
+        </Drower.Navigator>
+      </NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
 
